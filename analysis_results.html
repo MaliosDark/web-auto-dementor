@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Content Analysis Results</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #343a40; /* Stylish dark background */
+      color: #fff;
+      margin: 0;
+      padding: 20px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+    h1 {
+      color: #fff;
+      text-align: center;
+    }
+    #results {
+      margin-top: 20px;
+      padding: 20px;
+      background-color: #fff;
+      color: #333;
+      border-radius: 8px;
+    }
+    a {
+      display: block;
+      margin-top: 20px;
+      color: #007bff; /* Cool blue from Bootstrap */
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <h1>Analysis Results</h1>
+  <div id="results">
+    <p>In this analysis, we dive into the magical realm of word repetition in the provided text. Each word comes with its own percentage party, showing off how much it loves to appear in the text.</p>
+    <b>Word\t\tPercentage</b><br>${"-".repeat(25)}<br>
+    <!--PERCENTAGES_CONTENT-->
+  </div>
+  <a href="/">Back to the Form</a>
+
+  <script>
+    // Sorting the percentages
+    const sortedPercentages = Object.entries(percentages)
+      .sort(([, a], [, b]) => b - a);
+
+    // Reference to the results div
+    const resultsDiv = document.getElementById('results');
+
+    // Building the sorted HTML content
+    sortedPercentages.forEach(([word, percentage]) => {
+      const entry = document.createElement('b');
+      entry.innerHTML = `${word}\t\t${percentage.toFixed(2)}%<br>`;
+      resultsDiv.appendChild(entry);
+    });
+  </script>
+  <script>
+    // Estructura de datos con información de ubicación
+    const wordData = {
+      delve: { percentage: 0.00, location: [/* ubicaciones de 'delve' */] },
+      dive: { percentage: 0.00, location: [/* ubicaciones de 'dive' */] },
+      // ... otras palabras ...
+    };
+
+    // Función para generar HTML con información de ubicación
+    function generateHTMLResultsWithLocation(wordData) {
+      const sortedWordData = Object.entries(wordData)
+        .sort(([, a], [, b]) => b.percentage - a.percentage);
+
+      const htmlContent = `
+        <h1>Analysis Results</h1>
+        <div id="results">
+          <p>In this analysis, we dive into the magical realm of word repetition in the provided text. Each word comes with its own percentage party, showing off how much it loves to appear in the text.</p>
+          <b>Word\t\tPercentage\t\tLocation</b><br>${"-".repeat(50)}<br>
+          ${sortedWordData.map(([word, data]) => `<span style="font-weight: ${data.percentage > 0 ? 'bold' : 'normal'};">${word}\t\t${data.percentage.toFixed(2)}%\t\t${data.location.join(', ')}</span><br>`).join('')}
+        </div>
+        <a href="/">Back to the Form</a>
+      `;
+
+      return htmlContent;
+    }
+
+    // Usar la función con tu estructura de datos
+    const generatedHTML = generateHTMLResultsWithLocation(wordData);
+    console.log(generatedHTML);
+
+  </script>
+</body>
+</html>
