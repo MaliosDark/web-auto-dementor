@@ -1,5 +1,9 @@
 ## Web Auto-Dementor
 
+
+Demo
+[web-auto-dementor](https://dementor.aswss.com/)
+
 Web Auto-Dementor is a web-based content analysis tool that explores word repetition in a given website. This tool is an adaptation of the Python version available at [auto-dementor](https://github.com/Vgarcan/auto-dementor). It utilizes Puppeteer for web scraping and Express for building a simple web server.
 
 ## Features
@@ -26,7 +30,7 @@ Web Auto-Dementor is a web-based content analysis tool that explores word repeti
 3. Run the web server:
 
     ```bash
-    npm start
+    node server.js
     ```
 
     The server will be running on [http://localhost:3000](http://localhost:3000).
@@ -37,7 +41,7 @@ Web Auto-Dementor is a web-based content analysis tool that explores word repeti
 
 1. Enter the target website's URL in the provided form.
 2. Submit the form to initiate the analysis.
-3. Receive a detailed report with word percentages, charts, and bolded keywords.
+3. Receive a detailed report with word percentages, charts(optional), and bolded keywords.
 
 ## License
 
@@ -48,4 +52,4 @@ This project is licensed under the GNU General Public License v3.0 (GPL-3.0) - s
 - Inspired by [auto-dementor](https://github.com/Vgarcan/auto-dementor) Python project.
 - Built with [Express](https://expressjs.com/) and [Puppeteer](https://pptr.dev/).
 
-Feel free to contribute, enhance, and share the magic of content analysis with Web Auto-Dementor! 🚀
+Feel free to contribute 🚀
